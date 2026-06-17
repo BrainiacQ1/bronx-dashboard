@@ -205,73 +205,119 @@ td.dim{color:var(--muted);font-size:11.5px}
   <div class="page-header">
     <div class="page-header-left">
       <h1>Portfolio Overview</h1>
-      <p id="ov-sub">Loading...</p>
+      <p id="ov-sub">All 2025 figures reconciled and locked · 81 confirmed expense transactions</p>
     </div>
   </div>
 
-  <div class="section-label">Income & Cash Flow <span id="ov-metrics-note" style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">— Floors 1 & 2 only · Floor 3 excluded from KPIs</span></div>
+  <div class="section-label">Income & Cash Flow</div>
   <div class="cards c4">
-    <div class="card gl" data-tip="Total rent formally charged and collected from Floors 1 and 2. Floor 3 ($1,500/mo voluntary contribution) is excluded from all KPIs and tracked separately.">
+    <div class="card gl">
       <div class="card-label">Rental Income</div>
       <div class="card-value green" id="ov-rental">—</div>
-      <div class="card-sub" id="ov-rental-sub">Floors 1 & 2 · Basis for all KPIs</div>
+      <div class="card-sub" id="ov-rental-sub">Floors 1 & 2 only · Basis for all KPIs</div>
       <div class="card-dir dir-good">▲ Higher is better</div>
+      <div class="card-explain">Total rent formally charged and collected from Floors 1 and 2. Floor 3 ($1,500/mo voluntary contribution) is excluded from all KPIs and tracked separately as Other Income.</div>
     </div>
-    <div class="card al" data-tip="NOI = Rental Income minus operating expenses before mortgage. Does not mean mortgage is covered — see Net Cash Flow.">
+    <div class="card al">
       <div class="card-label">NOI — Net Operating Income</div>
       <div class="card-value" id="ov-noi">—</div>
       <div class="card-sub" id="ov-noi-sub">Rental Income – Operating Expenses</div>
       <div class="card-dir dir-good" id="ov-noi-dir">▲ Higher is better</div>
+      <div class="card-explain">What the property earns from formal rentals before the mortgage is paid. Does not mean the mortgage is covered — see Net Cash Flow.</div>
     </div>
-    <div class="card rl" data-tip="Money left after all expenses and mortgage are paid using formal rental income only. Negative means out-of-pocket coverage is required each month.">
+    <div class="card rl">
       <div class="card-label">Net Cash Flow</div>
       <div class="card-value red" id="ov-ncf">—</div>
       <div class="card-sub" id="ov-ncf-sub">NOI – Mortgage (PITI)</div>
-      <div class="card-dir dir-bad" id="ov-ncf-dir">▲ Less negative is better</div>
+      <div class="card-dir dir-bad">▲ Less negative is better · $2,997/mo shortfall</div>
+      <div class="card-explain">Money left after all expenses and mortgage are paid using formal rental income only. Negative means out-of-pocket coverage is required each month.</div>
     </div>
-    <div class="card" data-tip="Average income per formal rental unit per month. Benchmarks against comparable units in zip code 10475.">
+    <div class="card">
       <div class="card-label">Avg Rent / Formal Unit</div>
       <div class="card-value" id="ov-avg">—</div>
       <div class="card-sub" id="ov-avg-sub">Floors 1 & 2 only</div>
       <div class="card-dir dir-good">▲ Higher is better</div>
+      <div class="card-explain">Average income per formal rental unit. Benchmarks against comparable units in zip code 10475.</div>
     </div>
   </div>
 
-  <div class="section-label">Portfolio Metrics</div>
+  <div class="section-label">Portfolio Metrics <span id="ov-metrics-note" style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">— Floors 1 & 2 only · Floor 3 excluded</span></div>
   <div class="cards c5">
-    <div class="card" data-tip="DSCR = NOI ÷ Annual Mortgage. For every $1 owed on the mortgage, formal rentals generate this many cents. Below 1.0 means rental income alone does not cover the mortgage. Lenders require 1.25× minimum.">
-      <div class="card-label">DSCR</div>
+    <div class="card">
+      <div class="card-label">DSCR — Debt Service Coverage</div>
       <div class="card-value red" id="ov-dscr">—</div>
-      <div class="card-sub" id="ov-dscr-sub">Debt Service Coverage Ratio</div>
-      <div class="card-dir dir-bad">▼ Below 1.0 · Lender min 1.25×</div>
+      <div class="card-sub" id="ov-dscr-sub">NOI ÷ Annual Mortgage</div>
+      <div class="card-dir dir-bad">▼ Below 1.0 · Lender minimum 1.25×</div>
+      <div class="card-explain">For every $1 owed on the mortgage, formal rentals generate this many cents. Below 1.0 means rental income alone does not cover the mortgage. Lenders require 1.25× minimum.</div>
     </div>
-    <div class="card" data-tip="Cap Rate = NOI ÷ Property Value ($1.5M est.). If owned free and clear, this is the annual return from formal rentals. NYC Bronx benchmark 4–6%.">
-      <div class="card-label">Cap Rate</div>
+    <div class="card">
+      <div class="card-label">Cap Rate — Return on Value</div>
       <div class="card-value amber" id="ov-cap">—</div>
-      <div class="card-sub">NOI ÷ $1.5M est. value</div>
-      <div class="card-dir dir-bad">NYC Bronx 4–6% · Below range</div>
+      <div class="card-sub">NOI ÷ Est. Property Value ($1.5M)</div>
+      <div class="card-dir dir-bad">NYC Bronx benchmark 4–6% · Below range</div>
+      <div class="card-explain">If you owned the property with no mortgage, this is the annual return from formal rentals. Below 4% means the property earns less per dollar of value than the NYC Bronx benchmark.</div>
     </div>
-    <div class="card" data-tip="GRM = Property Value ÷ Rental Income. How many years of gross rent equal the property value. Above 18× means priced high relative to formal rental income. Lower is better.">
-      <div class="card-label">GRM</div>
+    <div class="card">
+      <div class="card-label">GRM — Gross Rent Multiplier</div>
       <div class="card-value amber" id="ov-grm">—</div>
       <div class="card-sub">Property Value ÷ Rental Income</div>
-      <div class="card-dir dir-bad">▼ Lower is better · NYC 12–18×</div>
+      <div class="card-dir dir-bad">▼ Lower is better · NYC range 12–18×</div>
+      <div class="card-explain">How many years of gross rental income equal the property value. Above 18× means the property is priced high relative to formal rental income.</div>
     </div>
-    <div class="card" data-tip="Both formal rental units (Floors 1 & 2) are occupied. 0% vacancy maximizes income. NYC multifamily average is 3–5%.">
+    <div class="card">
       <div class="card-label">Vacancy Rate</div>
       <div class="card-value green">0%</div>
-      <div class="card-sub">2 formal rentals occupied</div>
+      <div class="card-sub">2 formal rentals occupied · Floor 3 informal</div>
       <div class="card-dir dir-good">▼ Lower is better · NYC avg 3–5%</div>
+      <div class="card-explain">Both formal rental units (Floors 1 & 2) are occupied. 0% vacancy maximizes income. NYC multifamily average is 3–5%.</div>
     </div>
-    <div class="card" data-tip="Estimated cost per income-producing unit = $1.5M ÷ 2 formal rental units. Used to benchmark against comparable multifamily sales.">
+    <div class="card">
       <div class="card-label">Price / Formal Unit</div>
       <div class="card-value">$750K</div>
-      <div class="card-sub">$1.5M est. ÷ 2 units</div>
+      <div class="card-sub">$1.5M est. ÷ 2 formal rental units</div>
       <div class="card-dir dir-neutral">Compare to local Bronx sales</div>
+      <div class="card-explain">Estimated cost per income-producing unit. Used to benchmark against comparable multifamily sales. Based on owner's $1.5M estimate.</div>
     </div>
   </div>
 
-  <div class="section-label">Lease Alerts</div>
+  <div class="section-label">Other Income (Excluded from KPIs)</div>
+  <div class="cards c3">
+    <div class="card aml">
+      <div class="card-label">Floor 3 — Voluntary Contribution</div>
+      <div class="card-value amber" id="ov-f3">—</div>
+      <div class="card-sub" id="ov-f3-sub">$1,500/mo · Not rental income · No lease</div>
+      <div class="card-explain">Money received from Floor 3 occupants. Not a formal rent arrangement — no lease exists. Tracked for cash flow awareness only. Consult CPA regarding tax treatment.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Cash Received</div>
+      <div class="card-value" id="ov-total-cash">—</div>
+      <div class="card-sub" id="ov-total-cash-sub">Rental income + Floor 3 contribution</div>
+      <div class="card-explain">All money received across all floors. Not used in KPI calculations — shown for complete cash flow visibility.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Cash-on-Cash Return</div>
+      <div class="placeholder-val">Pending — needs total cash invested (down payment + closing costs)</div>
+    </div>
+  </div>
+
+  <div class="section-label">Pending Inputs</div>
+  <div class="cards c3">
+    <div class="card">
+      <div class="card-label">Equity (Est.)</div>
+      <div class="placeholder-val">Pending — needs current mortgage balance</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Rent Growth YoY</div>
+      <div class="placeholder-val" id="ov-yoy">Pending — needs full 2026 income data</div>
+    </div>
+    <div class="card gl">
+      <div class="card-label">Floor 2 — 2026 YTD</div>
+      <div class="card-value green">$20,784</div>
+      <div class="card-sub">$3,464/mo × 6 months · Jan–Jun confirmed</div>
+    </div>
+  </div>
+
+  <div class="section-label">Next Lease Action</div>
   <div class="cards c3">
     <div class="card aml">
       <div class="card-label">Floor 1 — Notice Deadline</div>
@@ -286,7 +332,7 @@ td.dim{color:var(--muted);font-size:11.5px}
     <div class="card">
       <div class="card-label">Floor 3 — Lease Status</div>
       <div class="card-value muted">Month-to-Month</div>
-      <div class="card-sub">No lease · 30-day notice for any change</div>
+      <div class="card-sub">No lease · 30-day notice required for changes</div>
     </div>
   </div>
 
@@ -412,7 +458,7 @@ td.dim{color:var(--muted);font-size:11.5px}
   <div class="page-header">
     <div class="page-header-left">
       <h1>Expenses</h1>
-      <p id="exp-sub">Loading...</p>
+      <p id="exp-sub">81 confirmed transactions · FY 2025 · Source: owner-confirmed QBO export</p>
     </div>
   </div>
 
@@ -466,10 +512,6 @@ td.dim{color:var(--muted);font-size:11.5px}
         <tr><td>Grass removal</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">$200</td><td class="num">—</td><td class="num">$200</td><td><span class="badge bg">Confirmed</span></td></tr>
         <tr class="total-row"><td>Total</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$8,091.52</td><td class="num">$7,823.00</td><td class="num">$47,680.60</td><td><span class="badge bg">Confirmed</span></td></tr>
       </table>
-    </div>
-    <div class="chart-card">
-      <h3>Year-over-Year Expense Comparison — 2025 Full Year vs. 2026 YTD (Jan–Jun)</h3>
-      <div class="chart-wrap"><canvas id="exp-yoy"></canvas></div>
     </div>
   </div>
 </div>
@@ -712,9 +754,6 @@ function setYear(yr, btn) {
     if (el25) el25.style.display = yr === 2025 ? 'block' : 'none';
     if (el26) el26.style.display = yr === 2026 ? 'block' : 'none';
   });
-  // Update tab subtitles
-  const expSub = document.getElementById('exp-sub');
-  if (expSub) expSub.textContent = yr === 2025 ? '81 confirmed transactions · FY 2025 · Source: owner-confirmed QBO export' : '2026 YTD · Jan–Jun confirmed · Source: confirmed session data';
   // Reinit charts for new year
   initCharts(yr);
 }
@@ -856,25 +895,6 @@ function initCharts(yr) {
   }
 
   if (key === 2026) {
-    // YoY expense comparison
-    const cyoy = C('exp-yoy');
-    if (cyoy) new Chart(cyoy, {
-      type: 'bar',
-      data: {
-        labels: ['Mortgage (PITI)', 'Operating Expenses', 'Total'],
-        datasets: [
-          { label: '2025 Full Year', data: [89255, 19414, 108669], backgroundColor: 'rgba(79,124,255,.7)', borderRadius:5 },
-          { label: '2026 YTD (Jan–Jun)', data: [44731, 2950, 47681], backgroundColor: 'rgba(34,201,122,.7)', borderRadius:5 }
-        ]
-      },
-      options: { responsive:true, maintainAspectRatio:false,
-        plugins:{ legend:{labels:{color:'#9ba3c0',font:{size:10}}},
-          tooltip:{callbacks:{label:c=>`${c.dataset.label}: $${c.raw.toLocaleString()}`}}},
-        scales:{ x:{grid:{color:GC},ticks:{color:TC,font:{size:10}}},
-                 y:{grid:{color:GC},ticks:{color:TC,font:{size:10},callback:v=>'$'+(v/1000).toFixed(0)+'k'}} }
-      }
-    });
-
     // Overview income bar 2026
     const c7 = C('ov-income-bar');
     if (c7 && c7.canvas) {
@@ -950,7 +970,8 @@ async function doLogin(){
   if(hashHex === 'db334ce749e44c7878a51dd67357310ab880c48c0641c483984662162302452c'){
     document.getElementById('login-screen').style.display='none';
     sessionStorage.setItem('bronx_auth','1');
-    initDashboard();
+    updateOverview(2025);
+    initCharts(2025);
     loadFilings();
     refreshSummaryCards();
     updateLeaseCountdowns();
@@ -964,7 +985,6 @@ async function doLogin(){
 function checkAuth(){
   if(sessionStorage.getItem('bronx_auth')==='1'){
     document.getElementById('login-screen').style.display='none';
-    initDashboard();
   } else {
     setTimeout(()=>document.getElementById('login-pwd').focus(),100);
   }
@@ -973,20 +993,6 @@ function checkAuth(){
 window.addEventListener('load', () => {
   checkAuth();
 });
-
-function initDashboard() {
-  const btns = document.querySelectorAll('.year-btn');
-  btns.forEach(b => b.classList.toggle('active', b.textContent.trim() === '2026'));
-  currentYear = 2026;
-  updateOverview(2026);
-  ['income','expenses','pnl'].forEach(tab => {
-    const el25 = document.getElementById(tab+'-2025');
-    const el26 = document.getElementById(tab+'-2026');
-    if (el25) el25.style.display = 'none';
-    if (el26) el26.style.display = 'block';
-  });
-  initCharts(2026);
-}
 </script>
 </body>
 </html>
