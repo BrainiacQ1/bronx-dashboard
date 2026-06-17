@@ -412,7 +412,7 @@ td.dim{color:var(--muted);font-size:11.5px}
   <div class="page-header">
     <div class="page-header-left">
       <h1>Expenses</h1>
-      <p id="exp-sub">81 confirmed transactions · FY 2025 · Source: owner-confirmed QBO export</p>
+      <p id="exp-sub">Loading...</p>
     </div>
   </div>
 
@@ -466,6 +466,10 @@ td.dim{color:var(--muted);font-size:11.5px}
         <tr><td>Grass removal</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">$200</td><td class="num">—</td><td class="num">$200</td><td><span class="badge bg">Confirmed</span></td></tr>
         <tr class="total-row"><td>Total</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$7,891.52</td><td class="num">$8,091.52</td><td class="num">$7,823.00</td><td class="num">$47,680.60</td><td><span class="badge bg">Confirmed</span></td></tr>
       </table>
+    </div>
+    <div class="chart-card">
+      <h3>Year-over-Year Expense Comparison — 2025 Full Year vs. 2026 YTD (Jan–Jun)</h3>
+      <div class="chart-wrap"><canvas id="exp-yoy"></canvas></div>
     </div>
   </div>
 </div>
@@ -708,6 +712,9 @@ function setYear(yr, btn) {
     if (el25) el25.style.display = yr === 2025 ? 'block' : 'none';
     if (el26) el26.style.display = yr === 2026 ? 'block' : 'none';
   });
+  // Update tab subtitles
+  const expSub = document.getElementById('exp-sub');
+  if (expSub) expSub.textContent = yr === 2025 ? '81 confirmed transactions · FY 2025 · Source: owner-confirmed QBO export' : '2026 YTD · Jan–Jun confirmed · Source: confirmed session data';
   // Reinit charts for new year
   initCharts(yr);
 }
@@ -849,6 +856,25 @@ function initCharts(yr) {
   }
 
   if (key === 2026) {
+    // YoY expense comparison
+    const cyoy = C('exp-yoy');
+    if (cyoy) new Chart(cyoy, {
+      type: 'bar',
+      data: {
+        labels: ['Mortgage (PITI)', 'Operating Expenses', 'Total'],
+        datasets: [
+          { label: '2025 Full Year', data: [89255, 19414, 108669], backgroundColor: 'rgba(79,124,255,.7)', borderRadius:5 },
+          { label: '2026 YTD (Jan–Jun)', data: [44731, 2950, 47681], backgroundColor: 'rgba(34,201,122,.7)', borderRadius:5 }
+        ]
+      },
+      options: { responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{labels:{color:'#9ba3c0',font:{size:10}}},
+          tooltip:{callbacks:{label:c=>`${c.dataset.label}: $${c.raw.toLocaleString()}`}}},
+        scales:{ x:{grid:{color:GC},ticks:{color:TC,font:{size:10}}},
+                 y:{grid:{color:GC},ticks:{color:TC,font:{size:10},callback:v=>'$'+(v/1000).toFixed(0)+'k'}} }
+      }
+    });
+
     // Overview income bar 2026
     const c7 = C('ov-income-bar');
     if (c7 && c7.canvas) {
@@ -949,7 +975,17 @@ window.addEventListener('load', () => {
 });
 
 function initDashboard() {
-  setYear(2026, document.querySelector('.year-btn:last-child'));
+  const btns = document.querySelectorAll('.year-btn');
+  btns.forEach(b => b.classList.toggle('active', b.textContent.trim() === '2026'));
+  currentYear = 2026;
+  updateOverview(2026);
+  ['income','expenses','pnl'].forEach(tab => {
+    const el25 = document.getElementById(tab+'-2025');
+    const el26 = document.getElementById(tab+'-2026');
+    if (el25) el25.style.display = 'none';
+    if (el26) el26.style.display = 'block';
+  });
+  initCharts(2026);
 }
 </script>
 </body>
