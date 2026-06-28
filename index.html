@@ -430,6 +430,12 @@ td.dim{color:var(--muted);font-size:11.5px}
       <div class="card aml"><div class="card-label">Total Cash Received YTD</div><div class="card-value amber">$46,356</div><div class="card-sub">Incl. Floor 3 voluntary contribution</div></div>
       <div class="card"><div class="card-label">Avg Rent / Formal Unit YTD</div><div class="card-value">$3,113/mo</div><div class="card-sub">$37,356 ÷ 2 units ÷ 6 months</div></div>
     </div>
+
+    <div class="grid2">
+      <div class="chart-card"><h3>Income Distribution by Floor — 2026 YTD</h3><div class="chart-wrap"><canvas id="inc-pie-2026"></canvas></div></div>
+      <div class="chart-card"><h3>Monthly Income by Floor — 2026 (Jan–Jun Confirmed)</h3><div class="chart-wrap"><canvas id="inc-monthly-2026"></canvas></div></div>
+    </div>
+
     <div class="section-label">Floor 1 — 2026 Monthly Payment Structure</div>
     <div class="table-card">
       <div class="table-card-header"><h3>Floor 1 · 2026 · Source: confirmed Jun 2026 session</h3></div>
@@ -451,18 +457,48 @@ td.dim{color:var(--muted);font-size:11.5px}
       </table>
     </div>
 
-    <div class="grid2">
-      <div class="chart-card">
-        <h3>Income Distribution by Floor — 2026 YTD</h3>
-        <div class="chart-wrap"><canvas id="inc-pie-2026"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <h3>Monthly Income by Floor — 2026 (Jan–Jun Confirmed)</h3>
-        <div class="chart-wrap"><canvas id="inc-monthly-2026"></canvas></div>
-      </div>
+    <div class="section-label">Floor 2 — 2026 Monthly Payment Structure</div>
+    <div class="table-card">
+      <div class="table-card-header"><h3>Floor 2 · 2026 · $3,464/mo · City program</h3></div>
+      <table>
+        <tr><th>Month</th><th>Structure</th><th class="num">City Check / Payment</th><th class="num">Total</th><th>Status</th></tr>
+        <tr><td>Jan 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Feb 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Mar 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Apr 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>May 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Jun 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Jul 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Aug 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Sep 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Oct 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Nov 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Dec 2026</td><td class="dim">Full payment</td><td class="num">$3,464.00</td><td class="num">$3,464.00</td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr class="total-row"><td colspan="2">YTD Confirmed (Jan–Jun)</td><td class="num">6 months</td><td class="num">$20,784</td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="section-label">Floor 3 — 2026 Voluntary Contribution</div>
+    <div class="table-card">
+      <div class="table-card-header"><h3>Floor 3 · 2026 · $1,500/mo · Other Income — Not Rental · Excluded from KPIs</h3></div>
+      <table>
+        <tr><th>Month</th><th class="num">Amount Received</th><th>Classification</th><th>Status</th></tr>
+        <tr><td>Jan 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Feb 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Mar 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Apr 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>May 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Jun 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge bg">Confirmed</span></td></tr>
+        <tr><td>Jul 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Aug 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Sep 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Oct 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Nov 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr><td>Dec 2026</td><td class="num">$1,500.00</td><td><span class="badge ba">Voluntary contribution</span></td><td><span class="badge ba">Pending receipt</span></td></tr>
+        <tr class="total-row"><td>YTD Confirmed (Jan–Jun)</td><td class="num">$9,000</td><td colspan="2" class="dim">Excluded from all KPIs — tracked for cash flow awareness only</td></tr>
+      </table>
     </div>
   </div>
-</div>
 
 <!-- ══════════════════ EXPENSES ══════════════════ -->
 <div id="tab-expenses" class="tab-content">
