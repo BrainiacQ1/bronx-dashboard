@@ -451,10 +451,15 @@ td.dim{color:var(--muted);font-size:11.5px}
       </table>
     </div>
 
-    <div class="chart-card" style="margin-bottom:18px">
-      <h3>Year-over-Year Monthly Total Expenses — 2025 vs. 2026</h3>
-      <div style="font-size:10px;color:var(--muted);margin-bottom:10px">2025 operating expenses spread evenly at ~$1,618/mo (estimated — pending QBO export). 2026 Jul–Dec not yet incurred.</div>
-      <div class="chart-wrap-tall"><canvas id="exp-yoy-mom"></canvas></div>
+    <div class="grid2">
+      <div class="chart-card">
+        <h3>Income Distribution by Floor — 2026 YTD</h3>
+        <div class="chart-wrap"><canvas id="inc-pie-2026"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Monthly Income by Floor — 2026 (Jan–Jun Confirmed)</h3>
+        <div class="chart-wrap"><canvas id="inc-monthly-2026"></canvas></div>
+      </div>
     </div>
   </div>
 </div>
@@ -934,6 +939,13 @@ function initCharts(yr) {
   }
 
   if (key === 2026) {
+  // 2026 income charts
+  const c_pie26 = C('inc-pie-2026');
+  if (c_pie26) new Chart(c_pie26, {type:'doughnut',data:{labels:['Floor 1 — $16,572','Floor 2 — $20,784','Floor 3 — $9,000 (Other)'],datasets:[{data:[16572,20784,9000],backgroundColor:['rgba(79,124,255,.8)','rgba(124,92,252,.8)','rgba(245,166,35,.7)'],borderWidth:0,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'63%',plugins:{legend:{position:'bottom',labels:{color:'#9ba3c0',font:{size:10},padding:10}}}}});
+
+  const c_mon26 = C('inc-monthly-2026');
+  if (c_mon26) new Chart(c_mon26, {type:'bar',data:{labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],datasets:[{label:'Floor 1',data:[2762, 2762, 2762, 2762, 2762, 2762, 0, 0, 0, 0, 0, 0],backgroundColor:'rgba(79,124,255,.75)',borderRadius:3},{label:'Floor 2',data:[3464, 3464, 3464, 3464, 3464, 3464, 0, 0, 0, 0, 0, 0],backgroundColor:'rgba(124,92,252,.7)',borderRadius:3},{label:'Floor 3 (Other)',data:[1500, 1500, 1500, 1500, 1500, 1500, 0, 0, 0, 0, 0, 0],backgroundColor:'rgba(245,166,35,.5)',borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#9ba3c0',font:{size:10}}}},scales:{x:{stacked:true,grid:{color:GC},ticks:{color:TC,font:{size:9}}},y:{stacked:true,grid:{color:GC},ticks:{color:TC,font:{size:10},callback:v=>'$'+(v/1000).toFixed(1)+'k'}}}}});
+
     // Overview income bar 2026
     const c7 = C('ov-income-bar');
     if (c7 && c7.canvas) {
@@ -1009,8 +1021,8 @@ async function doLogin(){
   if(hashHex === 'db334ce749e44c7878a51dd67357310ab880c48c0641c483984662162302452c'){
     document.getElementById('login-screen').style.display='none';
     sessionStorage.setItem('bronx_auth','1');
-    updateOverview(2025);
-    initCharts(2025);
+    setYear(2026, document.querySelectorAll('.year-btn')[1]);
+    initCharts(2026);
     loadFilings();
     refreshSummaryCards();
     updateLeaseCountdowns();
@@ -1024,6 +1036,11 @@ async function doLogin(){
 function checkAuth(){
   if(sessionStorage.getItem('bronx_auth')==='1'){
     document.getElementById('login-screen').style.display='none';
+    setYear(2026, document.querySelectorAll('.year-btn')[1]);
+    initCharts(2026);
+    loadFilings();
+    refreshSummaryCards();
+    updateLeaseCountdowns();
   } else {
     setTimeout(()=>document.getElementById('login-pwd').focus(),100);
   }
