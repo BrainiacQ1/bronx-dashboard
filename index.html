@@ -1054,7 +1054,7 @@ async function doLogin(){
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashHex = hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
-  if(hashHex === 'db334ce749e44c7878a51dd67357310ab880c48c0641c483984662162302452c'){
+  if(hashHex === '6589cb8366d98fa7df831b5b3d5c81cd1c6fded5bcd53efe2cac92e30ab96228'){
     document.getElementById('login-screen').style.display='none';
     sessionStorage.setItem('bronx_auth','1');
     setYear(2026, document.querySelectorAll('.year-btn')[1]);
